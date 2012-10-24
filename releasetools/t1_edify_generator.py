@@ -32,9 +32,7 @@ class EdifyGenerator(edify_generator.EdifyGenerator):
       args = {'partition': partition, 'image': image}
 
       self.script.append(
-            ('assert(package_extract_file("%(image)s", "/tmp/%(image)s"),\n'
-             '       write_raw_image("/tmp/%(image)s", "%(partition)s"),\n'
-             '       delete("/tmp/%(image)s"));') % args)
+            'package_extract_file("%(image)s", "%(partition)s");' % args)
 
     def Unmount(self, mount_point):
       """Unmount the partition with the given mount_point."""
