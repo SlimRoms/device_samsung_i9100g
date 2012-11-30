@@ -29,6 +29,7 @@ PRODUCT_COPY_FILES := \
 
 # Audio
 PRODUCT_COPY_FILES += \
+    device/samsung/i9100g/configs/audio_effects.conf:system/etc/audio_effects.conf \
     device/samsung/i9100g/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Vold
@@ -77,7 +78,7 @@ PRODUCT_PACKAGES += \
     tinycap \
     tinymix \
     GalaxyS2Settings \
-    SamsungServiceMode \
+#    SamsungServiceMode \
     Torch
 
 # Filesystem management tools
@@ -88,7 +89,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=Smdk4210RIL \
+    ro.telephony.ril_class=SamsungExynos4RIL \
     mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10

@@ -33,8 +33,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Prebuilt files
 PRODUCT_COPY_FILES += \
-	device/samsung/i9100g/prebuilt/spn-conf/xml:system/etc/spn-conf.xml \
-	device/samsung/i9100g/prebuilt/Torch.apk:system/app/Torch.apk
+	device/samsung/i9100g/prebuilt/spn-conf/xml:system/etc/spn-conf.xml
+#	device/samsung/i9100g/prebuilt/Torch.apk:system/app/Torch.apk
 
 #Boot Animation
 PRODUCT_COPY_FILES += \

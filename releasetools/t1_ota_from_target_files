@@ -44,9 +44,9 @@ def WriteFullOTAPackage(input_zip, output_zip):
   # change very often.
   script = edify_generator.EdifyGenerator(3, OPTIONS.info_dict)
 
-  metadata = {"post-build": GetBuildProp("ro.build.fingerprint", input_zip),
-              "pre-device": GetBuildProp("ro.product.device", input_zip),
-              "post-timestamp": GetBuildProp("ro.build.date.utc", input_zip),
+  metadata = {"post-build": GetBuildProp("ro.build.fingerprint", OPTIONS.info_dict),
+              "pre-device": GetBuildProp("ro.product.device", OPTIONS.info_dict),
+              "post-timestamp": GetBuildProp("ro.build.date.utc", OPTIONS.info_dict),
               }
 
   device_specific = common.DeviceSpecificParams(
@@ -58,8 +58,9 @@ def WriteFullOTAPackage(input_zip, output_zip):
       metadata=metadata,
       info_dict=OPTIONS.info_dict)
 
-  AppendAssertions(script, input_zip)
+#  AppendAssertions(script, input_zip)
   device_specific.FullOTA_Assertions()
+  device_specific.FullOTA_InstallBegin()
   if OPTIONS.backuptool:
     script.Mount("/system")
     script.RunBackup("backup")
@@ -130,3 +131,4 @@ if __name__ == '__main__':
     print "   ERROR: %s" % (e,)
     print
     sys.exit(1)
+
