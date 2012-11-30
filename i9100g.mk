@@ -127,9 +127,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240
-
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)

@@ -25,10 +25,10 @@ PRODUCT_MANUFACTURER := samsung
 
 #Extra Device info
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.device.cpu=Dual-core 1.2Ghz Cortex-A9 \
-	ro.device.gpu=PowerVR SGX540 \
-	ro.device.rear_cam=8 MP \
-	ro.device.front_cam=2 MP \
+	ro.device.cpu=Dual-core_1.2Ghz_Cortex-A9 \
+	ro.device.gpu=PowerVR-SGX540 \
+	ro.device.rear_cam=8MP \
+	ro.device.front_cam=2MP \
 	ro.device.screen_res=480x800
 
 #Prebuilt files
