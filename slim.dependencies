@@ -2,11 +2,11 @@
     {
         "repository": "CyanogenMod/android_kernel_samsung_t1",
         "target_path": "kernel/samsung/t1",
-	"branch": "jellybean"
+        "branch": "cm-10.1"
     },
     {
         "repository": "SlimRoms/proprietary_vendor_samsung",
         "target_path": "vendor/samsung",
-	"branch": "jb"
+        "branch": "jb4.2"
     }
 ]
