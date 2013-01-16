@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-** Copyright 2011, The CyanogenMod Project
+/* //device/apps/common/assets/res/any/dimens.xml
+**
+** Copyright 2006, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
 ** You may obtain a copy of the License at
 **
-**     http://www.apache.org/licenses/LICENSE-2.0
+** http://www.apache.org/licenses/LICENSE-2.0
 **
 ** Unless required by applicable law or agreed to in writing, software
 ** distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,13 +17,9 @@
 ** limitations under the License.
 */
 -->
-
 <resources>
-    <!-- Samsung Camcorder Mode -->
-    <bool name="needsSamsungCamMode">true</bool>
-    <!-- Samsung Camera Settings -->
-    <bool name="hasSamsungCamSettings">true</bool>
-    <!-- The camera removes the focus modes by default when touch-to-focus
-         exists. Use this option to change that behavior -->
-    <bool name="wantsFocusModes">true</bool>
+
+    <!-- Size of the clock font in keyguard's status view -->
+    <dimen name="keyguard_security_height">348dp</dimen>
+
 </resources>
