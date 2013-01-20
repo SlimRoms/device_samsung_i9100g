@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
     camera.t1 \
     libtinyalsa \
     libaudioutils \
+    libnetcmdiface \
     lights.t1 \
     power.t1 \
     tinyplay \
