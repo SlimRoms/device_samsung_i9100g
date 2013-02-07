@@ -1,8 +1,8 @@
 [
     {
-        "repository": "CyanogenMod/android_kernel_samsung_t1",
+        "repository": "mnm9994u/kernel_samsung_t1",
         "target_path": "kernel/samsung/t1",
-        "branch": "cm-10.1"
+        "branch": "jb4.2"
     },
     {
         "repository": "SlimRoms/proprietary_vendor_samsung",
