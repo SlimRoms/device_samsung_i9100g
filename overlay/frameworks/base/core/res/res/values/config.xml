@@ -44,12 +44,6 @@
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Package name providing network location & geocoder API support. -->
-    <string-array name="config_locationProviderPackageNames" translatable="false">
-        <item>com.android.location.fused</item>
-        <item>com.google.android.location</item>
-    </string-array>
-
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">false</bool>
