@@ -1,0 +1,36 @@
+#!/system/bin/sh
+
+# CPU Governer
+echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "75" > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+echo "10000" > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+echo "80000" > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+echo "1" > /sys/class/misc/devil_tweaks/smooth_ui_enabled
+
+# I/O Shed.
+echo "noop [row]" > /sys/block/mmcblk0/queue/scheduler
+
+BML=`ls -d /sys/block/bml*`;
+MMC=`ls -d /sys/block/mmc*`;
+# I/O scheduler
+for i in $BML $MMC; do
+    if [ -e $i/queue/rotational ];
+    then
+        echo "0" > $i/queue/rotational;
+    fi;
+    if [ -e $i/queue/nr_requests ];
+    then
+        echo "8192" > $i/queue/nr_requests;
+    fi;
+
+    if [ -e $i/queue/iostats ];
+    then
+        echo "0" > $i/queue/iostats;
+    fi;
+
+    if [ -e $i/queue/read_ahead_kb ];
+    then
+        echo "512" > $i/queue/read_ahead_kb;
+    fi;
+done;
+
