@@ -2,7 +2,7 @@
 $(call inherit-product, vendor/slim/config/gsm.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := I9100G
+PRODUCT_RELEASE_NAME := i9100g
 
 # Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_phone.mk)
