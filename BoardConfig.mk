@@ -36,7 +36,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/i9100g/shbootimg.mk
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/t1
-TARGET_KERNEL_CONFIG := cyanogenmod_i9100g_defconfig
+TARGET_KERNEL_CONFIG := slim_i9100g_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro/bin/arm-linux-gnueabihf-
 
 # Init
