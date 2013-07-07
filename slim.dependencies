@@ -1,8 +1,8 @@
 [
     {
-        "repository": "SlimRoms/device_samsung_omap4-common",
+        "repository": "CyanogenMod/android_device_samsung_omap4-common",
         "target_path": "device/samsung/omap4-common",
-        "branch": "jb4.2"
+        "branch": "cm-10.1"
     },
     {
         "repository": "SlimRoms/kernel_samsung_t1",
