@@ -13,5 +13,10 @@
         "repository": "SlimRoms/proprietary_vendor_samsung",
         "target_path": "vendor/samsung",
         "branch": "jb4.2"
+    },
+    {
+        "repository": "SlimRoms/hardware_samsung",
+        "target_path": "hardware/samsung",
+        "branch": "jb4.2"
     }
 ]
