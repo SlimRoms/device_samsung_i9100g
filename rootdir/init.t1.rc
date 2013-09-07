@@ -24,6 +24,26 @@ on init
 on fs
     mount_all /fstab.t1
 
+# We chown/chmod /efs because mount is run as root + defaults
+    chown radio system /efs
+    chmod 0775 /efs
+
+# Restorecon
+    restorecon /efs/nv_data.bin
+    restorecon /efs/nv_data.bin.md5
+    restorecon /efs/.nv_core.bak
+    restorecon /efs/.nv_core.bak.md5
+    restorecon /efs/.nv_data.bak
+    restorecon /efs/.nv_data.bak.md5
+    restorecon /efs/.nv_state
+    restorecon /efs/bluetooth/bt_addr
+    restorecon /efs/FactoryApp/factorymode
+    restorecon /efs/FactoryApp/hw_ver
+    restorecon /efs/FactoryApp/keystr
+    restorecon /efs/FactoryApp/serial_no
+    restorecon /efs/imei/mps_code.dat
+    restorecon /efs/wifi/.mac.info
+
 # pvr module
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
 
@@ -51,10 +71,6 @@ on fs
 # change permissions for ION driver
     chmod 0777 /dev/ion
 
-# We chown/chmod /efs because mount is run as root + defaults
-    chown radio system /efs
-    chmod 0775 /efs
-
     mkdir /data/misc/radio/hatp 0771 radio system
     chown radio radio /data/misc/radio
 
@@ -63,7 +79,6 @@ on fs
 
     setprop ro.build.product GT-I9100G
     setprop ro.product.device GT-I9100G
-    setprop ro.radio.noril yes
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -150,28 +165,17 @@ on boot
 # Change permission for backlight
     chown system system /sys/class/backlight/panel/brightness
     chmod 0660 /sys/class/backlight/panel/brightness
-
-    chown radio system /sys/class/misc/melfas_touchkey/brightness
-    chmod 0660 /sys/class/sec/melfas_touchkey/brightness
     
 # Change permissions for touchkeys
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_menu
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_back
-    chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update_status
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
-    chown radio system /sys/class/sec/sec_touchkey/touchkey_brightness
-
-    chown system system /sys/class/sec/sec_touchkey/enable_disable
-    chmod 0660 /sys/class/sec/sec_touchkey/enable_disable
-    chown system system /sys/class/sec/sec_touchkey/led_mode
-    chmod 0660 /sys/class/sec/sec_touchkey/led_mode
-    chown system system /sys/class/sec/sec_touchkey/notification
-    chmod 0660 /sys/class/sec/sec_touchkey/notification
-    chown system system /sys/class/sec/sec_touchkey/timeout
-    chmod 0660 /sys/class/sec/sec_touchkey/timeout
+    chown system radio /sys/class/sec/sec_touchkey/brightness
+    chown system radio /sys/class/sec/sec_touchkey/notification
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_back
+    chown system radio /sys/class/sec/sec_touchkey/touch_sensitivity
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_panel
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_version_phone
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update_status
+    chown system radio /sys/class/sec/sec_touchkey/touchkey_firm_update
 
 # Permissions for dvfs lock
     chown radio system /sys/power/cpufreq_min_limit
@@ -221,10 +225,19 @@ on boot
     chown system system /sys/devices/platform/omapdss/overlay0/enabled
 
 # Vibrator
-    chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
-    chown system system /sys/vibrator/pwmvalue
-    chmod 0660 /sys/vibrator/pwmvalue
+    chmod 0660 /dev/tspdrv
+
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_max
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_max
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
 
 # Change permission for LCD
     chown system radio /sys/class/lcd/panel/lcd_type
@@ -338,12 +351,14 @@ service pvrsrvinit /system/vendor/bin/pvrsrvinit
     class core
     user root
     group root
+    seclabel u:r:pvrsrvinit:s0
     oneshot
 
 service pvrsrvctl /system/vendor/bin/pvrsrvctl_SGX540_120 --start --no-module
     class core
     user root
     group root
+    seclabel u:r:pvrsrvinit:s0
     oneshot
 
 # SMC Service
@@ -398,7 +413,7 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     disabled
     oneshot
 
-service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
     class main
     disabled
     oneshot
@@ -413,7 +428,12 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service iprenew_bnep0 /system/bin/dhcpcd -n
+service iprenew_bt-pan /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_eth0 /system/bin/dhcpcd -n
     class main
     disabled
     oneshot

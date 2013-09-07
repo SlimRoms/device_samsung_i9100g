@@ -4,14 +4,15 @@ $(call inherit-product, vendor/slim/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := i9100g
 
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # Inherit some common Slim stuff.
 $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/i9100g/full_i9100g.mk)
-
-# Inherit Device Settings
-$(call inherit-product, vendor/slim/config/common_sgs.mk)
 
 # Inherit torch settings
 $(call inherit-product, vendor/slim/config/common_ledflash.mk)
@@ -30,10 +31,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.device.rear_cam=8MP \
     ro.device.front_cam=2MP \
     ro.device.screen_res=480x800
-
-#Boot Animation
-PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip
 
 #copy 00check
 PRODUCT_COPY_FILES += \
