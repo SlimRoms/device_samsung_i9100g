@@ -31,3 +31,6 @@
 
 # Firmwares
 /system/vendor/firmware/ducati-m3.bin       u:object_r:firmware_ducati:s0
+
+# Preload files
+/preload(/.*)?                              u:object_r:system_file:s0
