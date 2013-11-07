@@ -18,10 +18,10 @@
 -->
 
 <resources>
-    <!-- Actual width/height of the trigger views placed on the UI -->
+    <!-- Actual width/height of the trigger views placed on the UI
     <dimen name="pie_trigger_thickness">12dp</dimen>
     <!-- Minimum width/height of the trigger views placed on the UI -->
     <dimen name="pie_trigger_min_thickness">10dp</dimen>
     <!-- Maximum width/height of the trigger views placed on the UI -->
-    <dimen name="pie_trigger_max_thickness">27dp</dimen>
+    <dimen name="pie_trigger_max_thickness">27dp</dimen> -->
 </resources>
