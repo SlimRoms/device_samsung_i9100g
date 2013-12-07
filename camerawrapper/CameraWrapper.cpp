@@ -103,8 +103,6 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "1.0");
     params.set(android::CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, "-3");
     params.set(android::CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, "3");
-    // Enable Samsung camcorder mode
-    params.set("cam_mode", isVideo ? "1" : "0");
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -135,6 +133,9 @@ char * camera_fixup_setparams(int id, const char * settings)
         else if(strcmp(isoMode, "ISO800") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
     }
+
+    // Enable Samsung camcorder mode
+    params.set("cam_mode", isVideo ? "1" : "0");
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
