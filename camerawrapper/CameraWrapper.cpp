@@ -113,6 +113,7 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
 char * camera_fixup_setparams(int id, const char * settings)
 {
+    bool isVideo = false;
     const char* isoMode;
 
     android::CameraParameters params;
@@ -132,6 +133,10 @@ char * camera_fixup_setparams(int id, const char * settings)
             params.set(android::CameraParameters::KEY_ISO_MODE, "400");
         else if(strcmp(isoMode, "ISO800") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
+    }
+
+   if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
+        isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
     }
 
     // Enable Samsung camcorder mode
