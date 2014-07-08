@@ -10,11 +10,6 @@
         "branch": "kk4.4"
     },
     {
-        "repository": "SlimRoms/proprietary_vendor_samsung",
-        "target_path": "vendor/samsung",
-        "branch": "kk4.4"
-    },
-    {
         "repository": "SlimRoms/hardware_samsung",
         "target_path": "hardware/samsung",
         "branch": "kk4.4"
