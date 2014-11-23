@@ -24,11 +24,11 @@
   <string name="panel_gamma_summary_head">Gamma Wert</string>
   <string name="touchscreen_subcat_title">Touchscreen</string>
   <string name="touchscreen_sensitivity_title_head">Empfindlichkeit</string>
-  <string name="touchscreen_sensitivity_summary_head">Berührungs-Empfindlichkeit</string>
-  <string name="touchkey_subcat_title">Touchkeys</string>
+  <string name="touchscreen_sensitivity_summary_head">Berührungsempfindlichkeit festlegen</string>
+  <string name="touchkey_subcat_title">Sensortasten</string>
   <string name="touchkey_led_mode_title">Auslösebereich Hintergrundbeleuchtung</string>
-  <string name="touchkey_timeout_title_head">Beleuchtungs-Timeout</string>
-  <string name="touchkey_timeout_summary_head">Zeit für die autom. Abschaltung der Touchkey-Beleuchtung</string>
+  <string name="touchkey_led_mode_summary">Bereich(e) auswählen, die, nach Berührung, die Beleuchtung der Sensortasten auslösen</string>
+  <string name="touchkey_timeout_summary_head">Abschaltzeit für Hintergrundbeleuchtung festlegen</string>
   <string name="category_sensors_title">Sensoren</string>
   <string name="accelerometer_subcat_title">Beschleunigungssensor</string>
   <string name="accelerometer_calibration_title_head">Kalibierungsdaten</string>

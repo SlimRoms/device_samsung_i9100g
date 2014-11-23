@@ -43,4 +43,9 @@
     <item>Nur HSDPA</item>
     <item>HSDPA + HSUPA</item>
   </string-array>
+  <string-array name="touchkey_led_mode_entries">
+    <item>None (disable backlight)</item>
+    <item>Nur Sensortasten</item>
+    <item>Sensortasten und Bildschirm</item>
+  </string-array>
 </resources>

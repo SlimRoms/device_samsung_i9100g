@@ -19,6 +19,7 @@
   <string name="defaults_button">Obnovit výchozí</string>
   <string name="category_screen_title">Obrazovka</string>
   <string name="screen_colors_title">Barvy</string>
+  <string name="cabc_title_head">Adaptivní osvětlení</string>
   <string name="cabc_summary_head">Povolit přizpůsobení podsvícení podle zobrazovaného obsahu</string>
   <string name="panel_gamma_title_head">Gamma obrazovky</string>
   <string name="panel_gamma_summary_head">Nastavit hodnotu gamma pro obrazovku</string>

@@ -27,6 +27,8 @@
   <string name="touchscreen_sensitivity_title_head">Sensibilidad táctil</string>
   <string name="touchscreen_sensitivity_summary_head">Establecer la sensibilidad del panel táctil</string>
   <string name="touchkey_subcat_title">Teclas táctiles</string>
+  <string name="touchkey_led_mode_title">Área desencadenante del contraluz</string>
+  <string name="touchkey_led_mode_summary">Seleccione área(s) que, al tocar, provocará(n) el incremento de la luminosidad</string>
   <string name="touchkey_timeout_title_head">Tiempo de espera de retroiluminación</string>
   <string name="touchkey_timeout_summary_head">Tiempo tras pulsar una tecla antes de apagar la retroiluminación</string>
   <string name="category_sensors_title">Sensores</string>
